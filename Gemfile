@@ -75,3 +75,4 @@ group :test do
 end
 
 gem 'name_of_person'
+gem 'devise'
