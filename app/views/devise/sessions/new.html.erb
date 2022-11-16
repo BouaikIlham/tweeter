@@ -1,23 +1,32 @@
 <%= render layout: "auth_layout", locals: { title: "Sign in" }  do %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
-  <div class="mb-6">
+  <div class="mb-2">
+    <%= f.label :first_name, class: "block text-gray-700 text-sm font-bold" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :last_name, class: "block text-gray-700 text-sm font-bold" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="mb-2">
     <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="mb-6">
+  <div class="mb-2">
     <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2"%><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="mb-6">
+    <div class="mb-2">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me, class: "text-gray-700 text-sm font-bold mb-2"%>
     </div>
   <% end %>
 
-  <div class="mb-6">
+  <div class="mb-2">
     <%= f.submit "Sign in", class: "bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
   </div>
 <% end %>
