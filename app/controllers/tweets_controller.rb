@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
         format.turbo_stream
       else 
         format.html do
-          flash[:tweet.errors] = @tweet.errors.full_messages
+          flash[:tweet_errors] = @tweet.errors.full_messages
           redirect_to root_path
         end
       end
