@@ -6,8 +6,6 @@ class User < ApplicationRecord
     has_person_name
     has_many :tweets
 
-  validates :first_name, presence: true, uniqueness: true
-  validates :last_name, presence: true, uniqueness: true
 
   has_one_attached :profile_image
 end
