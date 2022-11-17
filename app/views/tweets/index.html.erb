@@ -5,3 +5,12 @@
 <%= turbo_frame_tag "tweets", class: "divide-y" do%>
     <%= render @tweets%>
 <% end%>
+
+
+<div id="empty">
+    <%= turbo_frame_tag Tweet.new do%>
+        <% if Tweet.all.none? %>
+        <%= render "empty"%>
+        <% end%>
+    <% end %>
+</div>
