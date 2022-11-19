@@ -23,15 +23,15 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
   end 
+
   def retweet
     @tweet = Tweet.find(params[:id])
-    retweet = current_user.tweets.new(tweet_id: @tweet.id)
-
+    @retweet = current_user.tweets.new(tweet_id: @tweet.id)
     respond_to do |format|
-      if retweet.save
+      if @retweet.save
         format.turbo_stream
-      else 
-        format.html {redirect_back fallback_location: @tweet, alret: "Could not retweet"}
+      else
+        format.html { redirect_back fallback_location: @tweet, alert: "Could not retweet" }
       end
     end
   end
@@ -40,6 +40,6 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:body)
+    params.require(:tweet).permit(:body, :tweet_id )
   end
 end
