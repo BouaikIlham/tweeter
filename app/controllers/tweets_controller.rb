@@ -4,6 +4,10 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all.order(created_at: :desc)
   end
 
+  def show 
+    @tweet = Tweet.find(params[:id])
+  end
+
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
