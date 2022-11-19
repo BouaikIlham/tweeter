@@ -29,13 +29,14 @@ class TweetsController < ApplicationController
     @retweet = current_user.tweets.new(tweet_id: @tweet.id)
     respond_to do |format|
       if @retweet.save
-        format.turbo_stream
-      else
-        format.html { redirect_back fallback_location: @tweet, alert: "Could not retweet" }
+      format.turbo_stream 
+      else 
+      format.html { redirect_back fallback_location: @tweet, alert: "Could not retweet" }
       end
     end
   end
 
+  # @retweet.save ? format.turbo_stream : format.html { redirect_back fallback_location: @tweet, alert: "Could not retweet" }
 
   private
 
