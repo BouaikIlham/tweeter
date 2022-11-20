@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     end
   end
     def destroy
-        @comment = @tweet.comments(params[:id])
+        @comment = @tweet.comments.find(params[:id])
         @comment.destroy
         respond_to do |format|
             if @comment.save
