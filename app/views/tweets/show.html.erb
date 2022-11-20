@@ -39,3 +39,7 @@
 <div class="py-2 border-y px-4 justify-center flex">
     <%= render "tweets/controls", tweet: @tweet %>
 </div>
+
+<%= turbo_frame_tag "#{dom_id(@tweet)} _comment_form" do %>
+  <%= render "comments/form", tweet: @tweet%>
+<% end %>
