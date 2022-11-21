@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :profiles
+  resources :likes, only: [:create]
+
   root "tweets#index"
 end
