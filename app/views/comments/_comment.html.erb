@@ -18,6 +18,11 @@
                     <% end %>
                 </li>
                 <% end %>
+                <li>
+                    <%= content_tag :div, class: "#{dom_id(comment)}_likes" do %>
+                    <%= render "likes/likes", likeable: comment %>
+                    <% end %>
+                </li>
             </ul>
        </div>
     </div>
